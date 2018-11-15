@@ -28,7 +28,7 @@ public class ViewCell<ViewType : UIView> : Cell<String>, CellType {
     
     private var notificationObserver : NSObjectProtocol?
 
-    required public init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+    required public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         backgroundColor = UIColor.white
@@ -63,7 +63,7 @@ public class ViewCell<ViewType : UIView> : Cell<String>, CellType {
             }
         }
         
-        notificationObserver = NotificationCenter.default.addObserver(forName: UIContentSizeCategory.didChangeNotification,
+        notificationObserver = NotificationCenter.default.addObserver(forName: Notification.Name.UIContentSizeCategoryDidChange,
                                                                       object: nil,
                                                                       queue: nil,
                                                                       using: { [weak self] (note) in
